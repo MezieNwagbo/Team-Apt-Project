@@ -10,13 +10,20 @@
   justify-content: space-between;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 body {
   background-image: url("assets/background.png");
   color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow-y: hidden;
+  height: 100%;
+  position: relative;
 }
 
 nav {
@@ -173,30 +180,14 @@ nav {
   position: absolute;
 }
 
-/* .ray-1 {
-  transform: rotate(30deg);
+#ext-left,
+#mid-left,
+center,
+#ext-right,
+#mid-right {
+  animation: lightray 20s linear;
   transform-origin: bottom;
 }
-.ray-2 {
-  transform: rotate(60deg);
-  transform-origin: bottom;
-}
-.ray-3 {
-  transform: rotate(90deg);
-  transform-origin: bottom;
-}
-.ray-4 {
-  transform: rotate(-30deg);
-  transform-origin: bottom;
-}
-.ray-5 {
-  transform: rotate(-60deg);
-  transform-origin: bottom;
-}
-.ray-7 {
-  transform: rotate(-88deg);
-  transform-origin: bottom;
-} */
 
 .coin-pot {
   width: 370px;
@@ -225,6 +216,16 @@ nav {
 
 .star {
   position: absolute;
+}
+
+/* ANIMATIONS */
+@keyframes lightray {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(-45deg);
+  }
 }
 
 /* MEDIA QUERIES */
