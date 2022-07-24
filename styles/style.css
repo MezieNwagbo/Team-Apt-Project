@@ -1,3 +1,5 @@
+@import "animations.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -12,18 +14,25 @@
 
 html,
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  /* overflow-x: hidden;
+  overflow-y: hidden; */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 body {
-  background-image: url("assets/background.png");
+  background-image: url("../assets/background.png");
   color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
-  position: relative;
+  /* height: 100%; */
+  /* position: relative; */
 }
 
 nav {
@@ -70,6 +79,16 @@ nav {
   /* width: 0 auto; */
 }
 
+.headline {
+  margin-bottom: 15px;
+}
+
+.line-1-mask,
+.line-2-mask,
+.paragraph-1-mask,
+.paragraph-2-mask {
+  overflow: hidden;
+}
 .headline-text {
   font-family: "Poppins";
   font-style: normal;
@@ -77,19 +96,21 @@ nav {
   font-size: 60px;
   line-height: 64px;
   letter-spacing: -0.015em;
+  transform: translateY(100%);
 }
 
 .line-2 {
   font-weight: 700;
 }
 
-#headline-paragraph {
-  margin-top: 15px;
+.headline-paragraph {
+  /* margin-top: 15px; */
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 23px;
+  transform: translateY(100%);
 }
 
 .instructions-container {
@@ -107,6 +128,8 @@ nav {
   font-family: "Inter";
   font-style: normal;
   width: auto;
+  opacity: 0;
+  transform: translateY(10%);
 }
 
 .instructions-container h4 {
@@ -169,6 +192,7 @@ nav {
   text-align: center;
   width: 170px;
   height: 30px;
+  opacity: 0;
 }
 
 .button-text {
@@ -180,19 +204,11 @@ nav {
   position: absolute;
 }
 
-#ext-left,
-#mid-left,
-center,
-#ext-right,
-#mid-right {
-  animation: lightray 20s linear;
-  transform-origin: bottom;
-}
-
 .coin-pot {
   width: 370px;
   position: relative;
   top: 40px;
+  opacity: 0;
 }
 
 .coin {
@@ -214,40 +230,163 @@ center,
   position: relative;
 }
 
-.star {
-  position: absolute;
+.blinking-stars {
+  position: relative;
 }
 
-/* ANIMATIONS */
-@keyframes lightray {
-  from {
-    transform: rotateZ(0);
-  }
-  to {
-    transform: rotateZ(-45deg);
-  }
+.star-01 {
+  top: 170px;
+  left: 300px;
+  z-index: 10;
+}
+.star-02 {
+  bottom: -160px;
+  left: -200px;
+  z-index: 10;
+  width: 50px;
+  opacity: 0.6;
+}
+
+.star-03 {
+  top: 110px;
+  left: -50px;
+  z-index: 10;
+  /* animation: float 20s ease-out; */
+}
+
+.star-04 {
+  width: 65px;
+  top: 160px;
+  left: -30px;
+  z-index: 10;
+}
+
+.star-05 {
+  width: 80px;
+  right: 300px;
+  bottom: -180px;
+  z-index: 10;
 }
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 1210px) {
+@media only screen and (min-width: 1000px) and (max-width: 1281px) {
+  .headline {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1270px) {
   body {
     background-size: auto;
-    background-color: red;
   }
 
   .coin {
     visibility: hidden;
   }
-}
 
-@media only screen and (max-width: 800px) {
-  body {
-    background-color: green;
+  .headline {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
+  .headline-text {
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+
+  .headline-text {
+    font-size: 20px;
+  }
+
+  .headline-paragraph {
+    font-size: 8px;
+    margin: 0;
+    line-height: 14px;
+  }
+
+  .instructions-container {
+    width: 250px;
+  }
+
+  .instructions-container h4 {
+    margin-top: 8px;
+  }
+
+  .instructions-container p,
+  .instructions-container ul {
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  .hint-container {
+    width: 210px;
+  }
+
+  #hint-text {
+    font-size: 6px;
+    line-height: 10px;
+  }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 913px) {
+  .headline {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .instructions-container {
+    margin-top: 80px;
+    margin-bottom: 120px;
+  }
+
+  .button {
+    margin-bottom: 320px;
+  }
+
+  .light-rays {
+    bottom: -50px;
+  }
+}
+
+@media only screen and (max-width: 824px) {
   nav {
     margin: 10px 50px;
+  }
+
+  .headline {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  .instructions-container {
+    margin: 50px 20px;
+    margin-bottom: 200px;
+  }
+
+  .button {
+    margin-bottom: 100px;
+  }
+
+  .light-rays {
+    bottom: -50px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .headline {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .instructions-container {
+    margin: 50px 20px;
+    margin-bottom: 150px;
+  }
+
+  .button {
+    margin-bottom: 40px;
   }
 }
 
@@ -258,6 +397,11 @@ center,
 
   .main-content {
     margin-top: 40px;
+  }
+
+  .headline {
+    margin-top: 33px;
+    margin-bottom: 33px;
   }
 
   .headline-text {
@@ -311,24 +455,23 @@ center,
     line-height: 20px;
     letter-spacing: -0.02em;
   }
+
+  .button {
+    margin-bottom: 0px;
+  }
 }
 
-@media only screen and (max-width: 376px) {
-  nav {
-    margin: 30px 20px;
-  }
-
-  .main-content {
+@media only screen and (min-width: 530px) and (max-width: 541px) {
+  .headline {
     margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  .headline-text {
-    font-size: 30px;
-    line-height: 25px;
+  .paragraph-1 {
+    margin-bottom: 3px;
   }
 
-  #headline-paragraph {
-    margin-top: 17px;
+  .headline-paragraph {
     font-size: 12px;
     line-height: 14px;
   }
@@ -354,16 +497,98 @@ center,
     line-height: 15px;
   }
 }
-@media only screen and (max-width: 361px) {
-  .main-content {
-    margin-top: 50px;
+
+@media only screen and (max-width: 400px) {
+  .headline {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  nav {
+    margin: 30px 20px;
   }
 
-  #headline-paragraph {
-    margin-top: 50x;
+  .main-content {
+    margin-top: 10px;
+  }
+
+  .headline {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .headline-text {
+    font-size: 30px;
+    line-height: 25px;
+  }
+
+  .paragraph-1 {
+    margin-bottom: 3px;
+  }
+
+  .headline-paragraph {
+    font-size: 12px;
+    line-height: 14px;
   }
 
   .instructions-container {
-    margin: 50px 50px;
+    margin: 15px 15px;
+  }
+
+  .instructions-container h4 {
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .instructions-container ul,
+  .instructions-container p {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  #hint-text {
+    font-size: 11px;
+    line-height: 15px;
+  }
+}
+
+@media only screen and (max-width: 281px) {
+  nav {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .headline-text {
+    font-size: 20px;
+  }
+
+  .headline-paragraph {
+    font-size: 8px;
+    margin: 0;
+  }
+
+  .instructions-container {
+    width: 250px;
+  }
+
+  .instructions-container h4 {
+    margin-top: 8px;
+  }
+
+  .instructions-container p,
+  .instructions-container ul {
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  .hint-container {
+    width: 210px;
+  }
+
+  #hint-text {
+    font-size: 6px;
+    line-height: 10px;
   }
 }
